@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/iimeta/tiktoken-go"
+	"github.com/pkoukk/tiktoken-go"
 )
 
 // main
