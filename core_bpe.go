@@ -1,11 +1,9 @@
 package tiktoken
 
 import (
-	"bytes"
 	"errors"
 	"fmt"
 	"regexp"
-	"sort"
 	"strings"
 
 	"github.com/dlclark/regexp2"
@@ -54,9 +52,9 @@ func NewCoreBPE(encoder map[string]int, specialTokensEncoder map[string]int, pat
 	for k := range encoder {
 		sortedTokenBytes = append(sortedTokenBytes, []byte(k))
 	}
-	sort.Slice(sortedTokenBytes, func(i, j int) bool {
-		return bytes.Compare(sortedTokenBytes[i], sortedTokenBytes[j]) < 0
-	})
+	//sort.Slice(sortedTokenBytes, func(i, j int) bool {
+	//	return bytes.Compare(sortedTokenBytes[i], sortedTokenBytes[j]) < 0
+	//})
 
 	return &CoreBPE{
 		encoder:              encoder,

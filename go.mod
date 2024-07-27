@@ -1,11 +1,11 @@
-module github.com/pkoukk/tiktoken-go
+module github.com/iimeta/tiktoken-go
 
-go 1.19
+go 1.22
 
 require (
-	github.com/dlclark/regexp2 v1.10.0
-	github.com/google/uuid v1.3.0
-	github.com/stretchr/testify v1.8.2
+	github.com/dlclark/regexp2 v1.11.2
+	github.com/google/uuid v1.6.0
+	github.com/stretchr/testify v1.9.0
 )
 
 require (
