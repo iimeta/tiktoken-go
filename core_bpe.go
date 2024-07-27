@@ -1,7 +1,6 @@
 package tiktoken
 
 import (
-	"errors"
 	"fmt"
 	"regexp"
 	"strings"
@@ -34,24 +33,24 @@ func NewCoreBPE(encoder map[string]int, specialTokensEncoder map[string]int, pat
 		return nil, fmt.Errorf("error compiling special regex: %s", err)
 	}
 
-	decoder := make(map[int]string, len(encoder))
-	for k, v := range encoder {
-		decoder[v] = k
-	}
-
-	if len(encoder) != len(decoder) {
-		return nil, errors.New("encoder and decoder map sizes are different")
-	}
-
-	specialTokensDecoder := make(map[int]string, len(specialTokensEncoder))
-	for k, v := range specialTokensEncoder {
-		specialTokensDecoder[v] = k
-	}
-
-	sortedTokenBytes := make([][]byte, 0, len(encoder))
-	for k := range encoder {
-		sortedTokenBytes = append(sortedTokenBytes, []byte(k))
-	}
+	//decoder := make(map[int]string, len(encoder))
+	//for k, v := range encoder {
+	//	decoder[v] = k
+	//}
+	//
+	//if len(encoder) != len(decoder) {
+	//	return nil, errors.New("encoder and decoder map sizes are different")
+	//}
+	//
+	//specialTokensDecoder := make(map[int]string, len(specialTokensEncoder))
+	//for k, v := range specialTokensEncoder {
+	//	specialTokensDecoder[v] = k
+	//}
+	//
+	//sortedTokenBytes := make([][]byte, 0, len(encoder))
+	//for k := range encoder {
+	//	sortedTokenBytes = append(sortedTokenBytes, []byte(k))
+	//}
 	//sort.Slice(sortedTokenBytes, func(i, j int) bool {
 	//	return bytes.Compare(sortedTokenBytes[i], sortedTokenBytes[j]) < 0
 	//})
@@ -59,11 +58,11 @@ func NewCoreBPE(encoder map[string]int, specialTokensEncoder map[string]int, pat
 	return &CoreBPE{
 		encoder:              encoder,
 		specialTokensEncoder: specialTokensEncoder,
-		decoder:              decoder,
-		specialTokensDecoder: specialTokensDecoder,
-		tlRegex:              regex,
-		tlSpecialRegex:       specialRegex,
-		sortedTokenBytes:     sortedTokenBytes,
+		//decoder:              decoder,
+		//specialTokensDecoder: specialTokensDecoder,
+		tlRegex:        regex,
+		tlSpecialRegex: specialRegex,
+		//sortedTokenBytes:     sortedTokenBytes,
 	}, nil
 }
 
