@@ -43,6 +43,19 @@ func EncodingForModel(modelName string) (*Tiktoken, error) {
 	return nil, fmt.Errorf("no encoding for model %s", modelName)
 }
 
+func IsEncodingForModel(modelName string) bool {
+	if _, ok := MODEL_TO_ENCODING[modelName]; ok {
+		return true
+	} else {
+		for prefix, _ := range MODEL_PREFIX_TO_ENCODING {
+			if strings.HasPrefix(modelName, prefix) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 type Tiktoken struct {
 	bpe              *CoreBPE
 	pbeEncoding      *Encoding

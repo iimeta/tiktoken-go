@@ -22,9 +22,12 @@ const (
 
 var MODEL_TO_ENCODING = map[string]string{
 	// chat
-	"gpt-4o":        MODEL_O200K_BASE,
-	"gpt-4":         MODEL_CL100K_BASE,
-	"gpt-3.5-turbo": MODEL_CL100K_BASE,
+	"o1-preview":        MODEL_O200K_BASE,
+	"o1-mini":           MODEL_O200K_BASE,
+	"gpt-4o":            MODEL_O200K_BASE,
+	"chatgpt-4o-latest": MODEL_O200K_BASE,
+	"gpt-4":             MODEL_CL100K_BASE,
+	"gpt-3.5-turbo":     MODEL_CL100K_BASE,
 	// text
 	"text-davinci-003": MODEL_P50K_BASE,
 	"text-davinci-002": MODEL_P50K_BASE,
@@ -67,7 +70,9 @@ var MODEL_TO_ENCODING = map[string]string{
 
 var MODEL_PREFIX_TO_ENCODING = map[string]string{
 	// chat
+	"o1-":            MODEL_O200K_BASE,  // e.g., o1-preview-2024-09-12, o1-mini-2024-09-12, etc.
 	"gpt-4o-":        MODEL_O200K_BASE,  // e.g., gpt-4o-2024-05-13, etc.
+	"chatgpt-4o-":    MODEL_O200K_BASE,  // e.g., chatgpt-4o-latest, etc.
 	"gpt-4-":         MODEL_CL100K_BASE, // e.g., gpt-4-0314, etc., plus gpt-4-32k
 	"gpt-3.5-turbo-": MODEL_CL100K_BASE, // e.g, gpt-3.5-turbo-0301, -0401, etc.
 }
